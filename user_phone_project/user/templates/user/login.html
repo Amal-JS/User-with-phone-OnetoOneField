@@ -1,0 +1,62 @@
+
+{% extends 'base.html'%}
+{% block title %}Login {% endblock %}
+
+{% block content %}
+    
+
+<div class="container">
+    <div class="row m-5 d-flex justify-content-center align-item-center ">
+
+        <h1 class="display-3 text-success text-center">Login</h1>
+
+        <div class="col-6 p-4 my-4 rounded border border-success">
+
+<form method="post" >
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">UserName or Email or Phone</label>
+        <input type="text" class="form-control" name="username_phone_email" id="exampleInputEmail1" aria-describedby="usernameHelp" placeholder="Enter">
+
+    </div>
+
+
+   
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+    </div>
+
+    
+    
+      
+    <div class="mb-3 text-center">
+        <button type="submit" class="btn btn-secondary">Login</button>
+    </div>
+    
+  </form>
+
+
+  {% if messages %}
+  <div class="text-center p-2 m-2 text-danger">
+      {% for message in messages %}
+      <p class="error">{{ message }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+
+<div class="m-2">
+<p>Doesn't have an account, <a href="{% url 'create_user' %}" class="text-warning">Create Account</a></p>
+</div>
+
+ 
+
+
+</div>
+</div>
+</div>
+
+{%  endblock %}
+  

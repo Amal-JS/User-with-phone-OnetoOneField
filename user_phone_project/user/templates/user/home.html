@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row m-4">
+        <div class="col-12 mt-5 text-center">
+
+            <h1 class="display-3 text-success text-center">Hi,<h2 class="mx-3 text-secondary text-center">
+
+                {% if request.user.is_authenticated %}
+                    {{request.user.username}}
+
+                {% else %}
+                    Guest
+
+                {% endif %}
+
+
+            </h2></h1>
+
+            <a href="{% url 'logout' %}"  class="btn btn-danger text-white m-4">Logout</a>
+
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,62 @@
+
+{% extends 'base.html'%}
+{% block title %}Create User {% endblock %}
+
+{% block content %}
+    
+
+<div class="container">
+    <div class="row m-5 d-flex justify-content-center align-item-center ">
+
+        <h1 class="display-3 text-success text-center">Create User</h1>
+
+        <div class="col-6 p-4 my-4 rounded border border-success">
+
+<form method="post" >
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">UserName</label>
+        <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="usernameHelp" placeholder="Enter username">
+
+    </div>
+
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+    </div>
+
+    
+      <div class="mb-3">
+        <label for="exampleInputPhone" class="form-label">Phone</label>
+        <input type="text" class="form-control" name="phone" id="exampleInputEmail1" aria-describedby="phoneHelp" placeholder="Enter phone number">
+
+    </div>
+      
+    <div class="mb-3 text-center">
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </div>
+    
+  </form>
+
+  {% if messages %}
+
+    {% for message in messages %}
+    <p class="error">{{ message }}</p>
+    {% endfor %}
+
+{% endif %}
+
+
+</div>
+</div>
+</div>
+
+{%  endblock %}
+  
